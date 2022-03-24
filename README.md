@@ -2,11 +2,11 @@
 
 **Custom D Addressable** is a Laravel package to manage addresses that belong to your models. You can add addresses to any eloquent model with ease.
 
-[![Packagist](https://img.shields.io/packagist/v/customd/laravel-addresses.svg?label=Packagist&style=flat-square)](https://packagist.org/packages/customd/laravel-addresses)
-[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/customd/laravel-addresses.svg?label=Scrutinizer&style=flat-square)](https://scrutinizer-ci.com/g/customd/laravel-addresses/)
-[![Travis](https://img.shields.io/travis/customd/laravel-addresses.svg?label=TravisCI&style=flat-square)](https://travis-ci.org/customd/laravel-addresses)
+[![Packagist](https://img.shields.io/packagist/v/customd/laravel-addressable.svg?label=Packagist&style=flat-square)](https://packagist.org/packages/customd/laravel-addressable)
+[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/customd/laravel-addressable.svg?label=Scrutinizer&style=flat-square)](https://scrutinizer-ci.com/g/customd/laravel-addressable/)
+[![Travis](https://img.shields.io/travis/customd/laravel-addressable.svg?label=TravisCI&style=flat-square)](https://travis-ci.org/customd/laravel-addressable)
 [![StyleCI](https://styleci.io/repos/87485079/shield)](https://styleci.io/repos/87485079)
-[![License](https://img.shields.io/packagist/l/customd/laravel-addresses.svg?label=License&style=flat-square)](https://github.com/customd/laravel-addresses/blob/develop/LICENSE)
+[![License](https://img.shields.io/packagist/l/customd/laravel-addressable.svg?label=License&style=flat-square)](https://github.com/customd/laravel-addressable/blob/develop/LICENSE)
 
 
 ## Installation
