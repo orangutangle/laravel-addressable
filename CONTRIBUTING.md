@@ -18,6 +18,10 @@ And constructed with the following guidelines:
 - New additions without breaking backward compatibility bump the minor and reset the patch.
 - Bug fixes and misc changes bump the patch.
 
+## Commit Notes
+
+This project uses conventional commits. Any commits made that ultimately get included in this project must use this standard.
+Version numbers and changelogs will automatically be generated from commit notes.
 
 ## Pull Requests
 
@@ -36,12 +40,3 @@ This project follows the FIG PHP Standards Recommendations compliant with the [P
 If you have a proposal or a feature request, you may create an issue with `[Proposal]` in the title.
 
 The proposal should also describe the new feature, as well as implementation ideas. The proposal will then be reviewed and either approved or denied. Once a proposal is approved, a pull request may be created implementing the new feature.
-
-
-## Git Flow
-
-This project follows [Git-Flow](http://nvie.com/posts/a-successful-git-branching-model/), and as such has `master` (latest stable releases), `develop` (latest WIP development) and X.Y support branches (when there's multiple major versions).
-
-Accordingly all pull requests MUST be sent to the `develop` branch.
-
-> **Note:** Pull requests which do not follow these guidelines will be closed without any further notice.

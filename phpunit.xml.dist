@@ -14,10 +14,10 @@
          beStrictAboutCoversAnnotation="true"
          printerClass="Codedungeon\PHPUnitPrettyResultPrinter\Printer">
     <testsuites>
-        <testsuite name="Rinvex Addresses Unit Test Suite">
+        <testsuite name="Custom D Addresssable Unit Test Suite">
             <directory suffix="Test.php">./tests/Unit</directory>
         </testsuite>
-        <testsuite name="Rinvex Addresses Feature Test Suite">
+        <testsuite name="Custom D Addresssable Feature Test Suite">
             <directory suffix="Test.php">./tests/Feature</directory>
         </testsuite>
     </testsuites>

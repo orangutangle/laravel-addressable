@@ -2,18 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Rinvex\Addresses\Models;
+namespace CustomD\Addressable\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Jackpopp\GeoDistance\GeoDistanceTrait;
-use Rinvex\Support\Traits\ValidatingTrait;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
- * Rinvex\Addresses\Models\Address.
+ * CustomD\Addressable\Models\Address.
  *
  * @property int                 $id
  * @property int                 $addressable_id
@@ -37,39 +36,38 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property \Carbon\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Model|\Eloquent $addressable
  *
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Addresses\Models\Address inCountry($countryCode)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Addresses\Models\Address inLanguage($languageCode)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Addresses\Models\Address isBilling()
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Addresses\Models\Address isPrimary()
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Addresses\Models\Address isShipping()
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Addresses\Models\Address outside($distance, $measurement = null, $latitude = null, $longitude = null)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Addresses\Models\Address whereAddressableId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Addresses\Models\Address whereAddressableType($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Addresses\Models\Address whereCity($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Addresses\Models\Address whereCountryCode($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Addresses\Models\Address whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Addresses\Models\Address whereFamilyName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Addresses\Models\Address whereGivenName($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Addresses\Models\Address whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Addresses\Models\Address whereIsBilling($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Addresses\Models\Address whereIsPrimary($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Addresses\Models\Address whereIsShipping($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Addresses\Models\Address whereLabel($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Addresses\Models\Address whereLatitude($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Addresses\Models\Address whereLongitude($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Addresses\Models\Address whereOrganization($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Addresses\Models\Address wherePostalCode($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Addresses\Models\Address whereState($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Addresses\Models\Address whereStreet($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Addresses\Models\Address whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\Rinvex\Addresses\Models\Address within($distance, $measurement = null, $latitude = null, $longitude = null)
+ * @method static \Illuminate\Database\Eloquent\Builder|\CustomD\Addressable\Models\Address inCountry($countryCode)
+ * @method static \Illuminate\Database\Eloquent\Builder|\CustomD\Addressable\Models\Address inLanguage($languageCode)
+ * @method static \Illuminate\Database\Eloquent\Builder|\CustomD\Addressable\Models\Address isBilling()
+ * @method static \Illuminate\Database\Eloquent\Builder|\CustomD\Addressable\Models\Address isPrimary()
+ * @method static \Illuminate\Database\Eloquent\Builder|\CustomD\Addressable\Models\Address isShipping()
+ * @method static \Illuminate\Database\Eloquent\Builder|\CustomD\Addressable\Models\Address outside($distance, $measurement = null, $latitude = null, $longitude = null)
+ * @method static \Illuminate\Database\Eloquent\Builder|\CustomD\Addressable\Models\Address whereAddressableId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\CustomD\Addressable\Models\Address whereAddressableType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\CustomD\Addressable\Models\Address whereCity($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\CustomD\Addressable\Models\Address whereCountryCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\CustomD\Addressable\Models\Address whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\CustomD\Addressable\Models\Address whereFamilyName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\CustomD\Addressable\Models\Address whereGivenName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\CustomD\Addressable\Models\Address whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\CustomD\Addressable\Models\Address whereIsBilling($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\CustomD\Addressable\Models\Address whereIsPrimary($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\CustomD\Addressable\Models\Address whereIsShipping($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\CustomD\Addressable\Models\Address whereLabel($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\CustomD\Addressable\Models\Address whereLatitude($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\CustomD\Addressable\Models\Address whereLongitude($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\CustomD\Addressable\Models\Address whereOrganization($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\CustomD\Addressable\Models\Address wherePostalCode($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\CustomD\Addressable\Models\Address whereState($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\CustomD\Addressable\Models\Address whereStreet($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\CustomD\Addressable\Models\Address whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\CustomD\Addressable\Models\Address within($distance, $measurement = null, $latitude = null, $longitude = null)
  * @mixin \Eloquent
  */
 class Address extends Model
 {
     use HasFactory;
     use SoftDeletes;
-    use ValidatingTrait;
     use GeoDistanceTrait;
 
     protected $latColumn = 'latitude';
@@ -94,8 +92,6 @@ class Address extends Model
         'latitude',
         'longitude',
         'is_primary',
-        'is_billing',
-        'is_shipping',
     ];
 
     /**
@@ -116,17 +112,7 @@ class Address extends Model
         'latitude' => 'float',
         'longitude' => 'float',
         'is_primary' => 'boolean',
-        'is_billing' => 'boolean',
-        'is_shipping' => 'boolean',
         'deleted_at' => 'datetime',
-    ];
-
-    /**
-     * {@inheritdoc}
-     */
-    protected $observables = [
-        'validating',
-        'validated',
     ];
 
     /**
@@ -151,25 +137,7 @@ class Address extends Model
      */
     public function __construct(array $attributes = [])
     {
-        $this->setTable(config('rinvex.addresses.tables.addresses'));
-        $this->mergeRules([
-            'addressable_id' => 'required|integer',
-            'addressable_type' => 'required|string|strip_tags|max:150',
-            'label' => 'nullable|string|strip_tags|max:150',
-            'given_name' => 'required|string|strip_tags|max:150',
-            'family_name' => 'nullable|string|strip_tags|max:150',
-            'organization' => 'nullable|string|strip_tags|max:150',
-            'country_code' => 'nullable|alpha|size:2|country',
-            'street' => 'nullable|string|strip_tags|max:150',
-            'state' => 'nullable|string|strip_tags|max:150',
-            'city' => 'nullable|string|strip_tags|max:150',
-            'postal_code' => 'nullable|string|strip_tags|max:150',
-            'latitude' => 'nullable|numeric',
-            'longitude' => 'nullable|numeric',
-            'is_primary' => 'sometimes|boolean',
-            'is_billing' => 'sometimes|boolean',
-            'is_shipping' => 'sometimes|boolean',
-        ]);
+        $this->setTable(config('addressable.tables.addresses'));
 
         parent::__construct($attributes);
     }
@@ -194,30 +162,6 @@ class Address extends Model
     public function scopeIsPrimary(Builder $builder): Builder
     {
         return $builder->where('is_primary', true);
-    }
-
-    /**
-     * Scope billing addresses.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $builder
-     *
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    public function scopeIsBilling(Builder $builder): Builder
-    {
-        return $builder->where('is_billing', true);
-    }
-
-    /**
-     * Scope shipping addresses.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $builder
-     *
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    public function scopeIsShipping(Builder $builder): Builder
-    {
-        return $builder->where('is_shipping', true);
     }
 
     /**
@@ -264,8 +208,8 @@ class Address extends Model
         parent::boot();
 
         static::saving(function (self $address) {
-            $geocoding = config('rinvex.addresses.geocoding.enabled');
-            $geocoding_api_key = config('rinvex.addresses.geocoding.api_key');
+            $geocoding = config('addressable.geocoding.enabled');
+            $geocoding_api_key = config('addressable.geocoding.api_key');
             if ($geocoding && $geocoding_api_key) {
                 $segments[] = $address->street;
                 $segments[] = sprintf('%s, %s %s', $address->city, $address->state, $address->postal_code);

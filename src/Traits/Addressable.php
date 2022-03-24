@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Rinvex\Addresses\Traits;
+namespace CustomD\Addressable\Traits;
 
 use Illuminate\Support\Collection;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
@@ -50,7 +50,7 @@ trait Addressable
      */
     public function addresses(): MorphMany
     {
-        return $this->morphMany(config('rinvex.addresses.models.address'), 'addressable', 'addressable_type', 'addressable_id');
+        return $this->morphMany(config('addressable.models.address'), 'addressable', 'addressable_type', 'addressable_id');
     }
 
     /**
