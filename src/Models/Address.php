@@ -70,9 +70,6 @@ class Address extends Model
     use SoftDeletes;
     use GeoDistanceTrait;
 
-    protected $latColumn = 'latitude';
-
-    protected $lngColumn = 'longitude';
 
     /**
      * {@inheritdoc}
@@ -98,21 +95,21 @@ class Address extends Model
      * {@inheritdoc}
      */
     protected $casts = [
-        'addressable_id' => 'integer',
+        'addressable_id'   => 'integer',
         'addressable_type' => 'string',
-        'label' => 'string',
-        'given_name' => 'string',
-        'family_name' => 'string',
-        'organization' => 'string',
-        'country_code' => 'string',
-        'street' => 'string',
-        'state' => 'string',
-        'city' => 'string',
-        'postal_code' => 'string',
-        'latitude' => 'float',
-        'longitude' => 'float',
-        'is_primary' => 'boolean',
-        'deleted_at' => 'datetime',
+        'label'            => 'string',
+        'given_name'       => 'string',
+        'family_name'      => 'string',
+        'organization'     => 'string',
+        'country_code'     => 'string',
+        'street'           => 'string',
+        'state'            => 'string',
+        'city'             => 'string',
+        'postal_code'      => 'string',
+        'latitude'         => 'float',
+        'longitude'        => 'float',
+        'is_primary'       => 'boolean',
+        'deleted_at'       => 'datetime',
     ];
 
     /**
@@ -138,6 +135,10 @@ class Address extends Model
     public function __construct(array $attributes = [])
     {
         $this->setTable(config('addressable.tables.addresses'));
+
+        $this->latColumn = 'latitude';
+
+        $this->lngColumn = 'longitude';
 
         parent::__construct($attributes);
     }

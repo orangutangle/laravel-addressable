@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace CustomD\Addressable\Tests\Feature;
 
 use ReflectionClass;
-use PHPUnit\Framework\TestCase;
+use Orchestra\Testbench\TestCase;
 use Illuminate\Container\Container;
 use Illuminate\Support\ServiceProvider;
-use CustomD\Addressable\Providers\AddressesServiceProvider;
+use CustomD\Addressable\AddressesServiceProvider;
 
 class ServiceProviderTest extends TestCase
 {

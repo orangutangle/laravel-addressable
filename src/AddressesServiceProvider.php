@@ -5,36 +5,27 @@ declare(strict_types=1);
 namespace CustomD\Addressable;
 
 use CustomD\Addressable\Models\Address;
-use Illuminate\Support\ServiceProvider;
+use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class AddressesServiceProvider extends ServiceProvider
+class AddressesServiceProvider extends PackageServiceProvider
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function register()
+    public function configurePackage(Package $package): void
     {
-        // Merge config
-        $this->mergeConfigFrom(realpath(__DIR__.'/../../config/config.php'), 'addressable');
+
+        $package
+            ->name('addressable')
+            ->hasConfigFile()
+            ->hasMigration('create_addresses_table.php');
+    }
+
+    public function packageRegistered()
+    {
 
         $this->app->singleton('addressable.addresss', config('addressable.models.address'));
 
-        if(config('addressable.models.address') !== Address::class) {
+        if (config('addressable.models.address') !== Address::class) {
             $this->app->alias('addressable.models.address', Address::class);
         }
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function boot()
-    {
-        $this->publishes([
-            __DIR__.'/../config/config.php' => config_path('addressable.php')
-        ], 'config');
-
-        $this->publishes([
-            __DIR__.'/../database/migrations/' => database_path('migrations')
-        ], 'migrations');
     }
 }

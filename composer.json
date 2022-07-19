@@ -37,15 +37,21 @@
   ],
   "require": {
     "php": "^8.0.0",
-    "illuminate/console": "^9.0.0 || ^10.0.0",
-    "illuminate/database": "^9.0.0 || ^10.0.0",
-    "illuminate/support": "^9.0.0 || ^10.0.0",
+    "illuminate/console": "^9.0.0",
+    "illuminate/database": "^9.0.0",
+    "illuminate/support": "^9.0.0",
     "jackpopp/geodistance": "^1.2.0",
-    "rinvex/countries": "^8.0.0"
+    "rinvex/countries": "^8.0.0",
+    "spatie/laravel-package-tools": "^1.9.2"
   },
   "require-dev": {
-    "codedungeon/phpunit-result-printer": "^0.31.0",
-    "illuminate/container": "^9.0.0 || ^10.0.0",
+    "illuminate/container": "^9.0.0",
+    "nunomaduro/collision": "^6.0",
+    "nunomaduro/larastan": "^2.0.1",
+    "orchestra/testbench": "^7.0",
+    "phpstan/extension-installer": "^1.1",
+    "phpstan/phpstan-deprecation-rules": "^1.0",
+    "phpstan/phpstan-phpunit": "^1.0",
     "phpunit/phpunit": "^9.5.0"
   },
   "autoload": {
@@ -59,12 +65,16 @@
     }
   },
   "scripts": {
+    "analyse": "vendor/bin/phpstan analyse",
     "test": "vendor/bin/phpunit"
   },
   "config": {
     "sort-packages": true,
     "preferred-install": "dist",
-    "optimize-autoloader": true
+    "optimize-autoloader": true,
+    "allow-plugins": {
+      "phpstan/extension-installer": true
+    }
   },
   "extra": {
     "laravel": {
