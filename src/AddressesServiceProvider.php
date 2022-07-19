@@ -16,7 +16,7 @@ class AddressesServiceProvider extends PackageServiceProvider
         $package
             ->name('addressable')
             ->hasConfigFile()
-            ->hasMigration('create_addresses_table.php');
+            ->hasMigration('create_addresses_table');
     }
 
     public function packageRegistered()
